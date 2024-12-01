@@ -158,12 +158,14 @@ export default function Home() {
           <div className='flex gap-2 flex-col'>
           {
             gestor.map((item) => (
-              <div key={item.id} className='bg-green-500 p-2 rounded-md text-white'>
+              <div key={item.id} className='bg-zinc-900 p-2 rounded-md text-white'>
                 <h3>{item.nome}</h3>
                 <p>{item.sexo}</p>
                 <small>{new Date(item.created_at).toLocaleString()}</small>
+                <div className="w-[100%] flex items-center">
                 <button onClick={() => deletarGestor(item.id)} className='ml-28 bg-red-600 w-20 rounded-md'>Deletar</button>
                 <button onClick={() => carregarCampos(item.id, item.nome, item.sexo)} className='ml-5 bg-yellow-500 w-20 rounded-md'>Editar</button>
+                </div>
               </div> 
             ))
           }
