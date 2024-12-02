@@ -10,18 +10,18 @@ export function Sidebar(){
         <div className="flex flex-col bg-muted/40">
 
             <aside 
-                className="fixed inset-y-0 left-0 z-20 hidden w-14 border-r bg-background sm:flex flex-col">
+                className="fixed inset-y-0 left-0 z-20 hidden w-14 border-r bg-zinc-800 sm:flex flex-col">
                 <nav className="flex flex-col items-center gap-5 px-2 py-5">
                     <TooltipProvider>
-                        <Link href="#" className="flex h-9 w-9 shrink-0 items-center justify-center bg-primary
-                        text-primary-foreground rounded-full">
+                        <Link href="#" className="flex h-9 w-9 shrink-0 items-center justify-center bg-secondary
+                        text-muted-foreground rounded-full">
                             <Package className="h-5 w-5" />
                             <span className="sr-only">Dashboard Avatar</span>
                         </Link>
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 <Link href="#" className="flex h-10 2-10 shrink-0 items-center justify-center rounded-lg
-                                    text-muted-foreground transition-colors hover:text-foreground">
+                                    text-muted-foreground transition-colors hover:text-secondary">
                                     <Home className="h-5 w-5" />
                                 </Link> 
                             </TooltipTrigger>
@@ -30,7 +30,7 @@ export function Sidebar(){
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 <Link href="#" className="flex h-10 2-10 shrink-0 items-center justify-center rounded-lg
-                                    text-muted-foreground transition-colors hover:text-foreground ">
+                                    text-muted-foreground transition-colors hover:text-secondary ">
                                     <ShoppingBag className="h-5 w-5" />
                                 </Link> 
                             </TooltipTrigger>
@@ -39,7 +39,7 @@ export function Sidebar(){
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 <Link href="#" className="flex h-10 2-10 shrink-0 items-center justify-center rounded-lg
-                                    text-muted-foreground transition-colors hover:text-foreground ">
+                                    text-muted-foreground transition-colors hover:text-secondary ">
                                     <Package2 className="h-5 w-5" />
                                 </Link> 
                             </TooltipTrigger>
@@ -48,7 +48,7 @@ export function Sidebar(){
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 <Link href="#" className="flex h-10 2-10 shrink-0 items-center justify-center rounded-lg
-                                    text-muted-foreground transition-colors hover:text-foreground ">
+                                    text-muted-foreground transition-colors hover:text-secondary ">
                                     <User2 className="h-5 w-5" />
                                 </Link> 
                             </TooltipTrigger>
@@ -57,7 +57,7 @@ export function Sidebar(){
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 <Link href="#" className="flex h-10 2-10 shrink-0 items-center justify-center rounded-lg
-                                    text-muted-foreground transition-colors hover:text-foreground ">
+                                    text-muted-foreground transition-colors hover:text-secondary ">
                                     <Settings2 className="h-5 w-5" />
                                 </Link> 
                             </TooltipTrigger>
@@ -70,8 +70,8 @@ export function Sidebar(){
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 <Link href="#" className="flex h-10 2-10 shrink-0 items-center justify-center rounded-lg
-                                    text-muted-foreground transition-colors hover:text-foreground ">
-                                    <LogOutIcon className="h-5 w-5 hover:text-red-500" />
+                                    text-muted-foreground transition-colors hover:text-red-500">
+                                    <LogOutIcon className="h-5 w-5" />
                                 </Link> 
                             </TooltipTrigger>
                             <TooltipContent side="right" className="font-medium">Sair</TooltipContent>

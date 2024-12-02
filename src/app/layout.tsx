@@ -1,11 +1,8 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import { cn } from "@/lib/utils" // config
 import { Sidebar } from "@/components/sidebar";
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON;
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={cn( "min-h-screen bg-background font-sans antialiased", inter.className)}>
+      <body className={cn( "min-h-screen bg-zinc-950 font-sans antialiased", inter.className)}>
         <Sidebar />
         {children}
       </body>

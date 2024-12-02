@@ -1,5 +1,4 @@
 "use client"
-import '../components/Form/gestor.css'
 import { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 
@@ -117,29 +116,27 @@ export default function Home() {
   }, [gestor, setGestor]);
 
   return (
-    <main className='p-5 px-28'>
-      <h1 className="font-medium text-3xl">Shadcn-UI</h1>
-
+    <main className='w-[100%] h-[100vh] flex items-center justify-center'>
       <div className="listar mr-20">
-        <h1 className='text-center text-3xl font-bold mb-5'>Cadastro de Gestores</h1>
+        <h1 className='text-center text-3xl font-bold mb-5 text-white'>Cadastro de Gestores</h1>
 
         <form onSubmit={cadastrarGestor} className='flex flex-col items-center justify-center gap-3'>
           <div className='flex flex-col'>
-            <label className='text-xl font-medium'>Nome:</label>
+            <label className='text-xl font-medium text-white'>Nome:</label>
             <input
               type="text"
               value={nome}
               onChange={(e) => setNome(e.target.value)}
-              className='px-2 border-none outline-none bg-zinc-800 text-white w-80 h-8 rounded-md text-base font-normal'
+              className='px-2 border-none outline-none bg-zinc-800 text-white w-80 h-10 rounded-md text-base font-normal'
               required
             />
           </div>
           <div className='flex flex-col'>
-              <label className='text-xl font-medium'>Sexo:</label>
+              <label className='text-xl font-medium text-white'>Sexo:</label>
               <select
                 value={sexo}
                 onChange={(e) => setSexo(e.target.value)}
-                className='px-2 border-none outline-none bg-zinc-800 text-white w-80 h-8 rounded-md text-base font-normal'
+                className='px-2 border-none outline-none bg-zinc-800 text-white w-80 h-10 rounded-md text-base font-normal'
                 required
               >
                 <option value="">Selecione</option>
@@ -148,27 +145,35 @@ export default function Home() {
               </select>
           </div>
           <div className="flex items-center justify-center gap-2">
-            <button type="submit" className={`bg-blue-700 text-white text-lg font-medium rounded-md w-40 h-8 ${cadastrar}`}>Cadastrar</button>
-            <button type="button" className={`bg-yellow-500 text-white text-lg font-medium rounded-md w-40 h-8 ${editar}`} onClick={() => handleEditar()}>Salvar</button>
+            <button type="submit" className={`bg-blue-700 text-white font-medium rounded-md w-[110px] h-8 ${cadastrar}`}>Cadastrar</button>
+            <button type="button" className={`bg-yellow-500 text-white font-medium rounded-md w-[110px] h-8 ${editar}`} onClick={() => handleEditar()}>Salvar</button>
           </div>
         </form>
         {mensagem && <p>{mensagem}</p>}
 
-          <h2 className='text-center text-3xl font-bold mt-5 mb-5'>Lista de Gestores</h2>
-          <div className='flex gap-2 flex-col'>
-          {
-            gestor.map((item) => (
-              <div key={item.id} className='bg-zinc-900 p-2 rounded-md text-white'>
-                <h3>{item.nome}</h3>
-                <p>{item.sexo}</p>
-                <small>{new Date(item.created_at).toLocaleString()}</small>
-                <div className="w-[100%] flex items-center">
-                <button onClick={() => deletarGestor(item.id)} className='ml-28 bg-red-600 w-20 rounded-md'>Deletar</button>
-                <button onClick={() => carregarCampos(item.id, item.nome, item.sexo)} className='ml-5 bg-yellow-500 w-20 rounded-md'>Editar</button>
+          <h2 className='text-center text-3xl font-bold mt-10 mb-5 text-white'>Lista de Gestores</h2>
+
+          <div className='gap-2 flex flex-col items-center'>
+            {gestor.map((item) => (
+              <div key={item.id} className='w-[500px] pb-5 pt-5 bg-zinc-900 p-2 rounded-md text-white'>
+                <div className="container flex items-center justify-center">
+                  <div className="gap-2 flex flex-col">
+                    <div className="gap-4 flex items-center">
+                      <h2 className='text-2xl'>{item.nome}</h2>
+                      
+                      <p className='text-lg'>{item.sexo}</p>
+                    </div>
+                    
+                    <small>{new Date(item.created_at).toLocaleDateString()}</small>
+                  </div>
+
+                  <div className="w-[100%] flex items-center">
+                    <button onClick={() => deletarGestor(item.id)} className='ml-28 bg-red-600 w-20 rounded-md'>Deletar</button>
+                    <button onClick={() => carregarCampos(item.id, item.nome, item.sexo)} className='ml-5 bg-yellow-500 w-20 rounded-md'>Editar</button>
+                  </div>
                 </div>
-              </div> 
-            ))
-          }
+              </div>
+            ))}
           </div>
       </div>
     </main>
